@@ -55,11 +55,20 @@ app.post('/sisubmit',(req,res)=>{
     console.log("ok");
     console.log(email,password,FirstName,LastName);
   });
-  res.redirect('/page1')
+  res.redirect('/homepage')
 })
 
+app.get('/homepage',(req,res)=>{
+  res.render("homepage");
+})
 
+app.get('/stulogin',(req,res)=>{
+  res.render("stulogin");
+})
 
+app.get('/adminlogin',(req,res)=>{
+  res.render("adminlogin");
+})
 /*
 below code collects student personnel deatails
 */
@@ -231,9 +240,10 @@ app.post('/admin',(req,res)=>{
   }
   else if(year!="" && branch!=""){
     year = year.slice(2,4);
+    console.log(typeof year);
     console.log("debugging output");
     console.log(year);
-    let sql = `select s.FirstName,s.LastName,s.Email, s.student_id,a.branch from signup s, Academic_Details a where s.student_id = a.student_id and (a.branch='${branch}' and s.email like "19");`
+    let sql = `select s.FirstName,s.LastName,s.Email, s.student_id,a.branch from signup s, Academic_Details a where s.student_id = a.student_id and (a.branch='${branch}' and s.email like "%${year}%");`
     db.query(sql,(err,values)=>{
     if (err) throw err;
     res.render("admin",{items:values});
