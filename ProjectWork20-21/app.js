@@ -4,6 +4,10 @@ var app = express();
 var mysql = require('mysql');
 var bodyParser = require('body-parser');
 
+const PORT = process.env.PORT || 5000;
+app.listen(5000);
+console.log("Running at Port "+PORT);
+
 var sid = null;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -11,7 +15,6 @@ app.use(bodyParser.json());
 // load view engine
 app.set('views',path.join(__dirname,'static'));
 app.set('view engine','ejs');
-
 
 var db = mysql.createConnection({
   host: "localhost",
@@ -26,8 +29,6 @@ db.connect((err)=>{
   console.log('mysql connected');
 });
 app.use(express.static('static'))
-app.listen(8080);
-console.log("Running at Port 8080");
 app.get('/',function(req,res){
     res.render("signup")
     db.query("SELECT student_id from student where student_id = (select max(student_id) from student);", function (err, value) {
