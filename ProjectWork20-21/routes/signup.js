@@ -3,6 +3,11 @@ const db = require("../database/connect");
 const router = express.Router();
 var sid = null;
 
+router.use(logger);
+function logger(req,res,next){
+  console.log('log');
+  next();
+}
 
 router.get('/',function(req,res){
     res.render("signup")
@@ -10,10 +15,12 @@ router.get('/',function(req,res){
       if (err) throw err;
       console.log(value);
       sid = value[0].student_id;
-  
     });
   });
- 
+
+
+
+
 router.post('/sisubmit',(req,res)=>{
   let sql = `insert into student() values()`;
   db.query(sql, function (err, result) {
@@ -31,7 +38,12 @@ router.post('/sisubmit',(req,res)=>{
     console.log("ok");
     console.log(email,password,FirstName,LastName);
   });
-  res.redirect('/homepage')
+  res.redirect('/homepage',{id:sid})
 })
 
 module.exports = router;
+// module.exports = {
+//   student(req,res,next){
+
+//   }
+// }

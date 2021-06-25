@@ -9,7 +9,7 @@ router.get('/admin',(req,res)=>{
       res.render("admin",{items:values});
     });
   })
-  
+
 router.post('/admin',(req,res)=>{
     let branch = req.body.branch;
     let year = req.body.year;

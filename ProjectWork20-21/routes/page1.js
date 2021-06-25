@@ -1,9 +1,11 @@
 const express = require('express');
 const db = require("../database/connect");
 const router = express.Router();
-
+const idsup = require('./signup');
+sid = idsup.s_sid;
 router.get('/page1',(req,res)=>{
-    res.render("page1")
+    res.render("page1");
+    console.log(sid);
   })
   
 router.post('/page1s',(req,res)=>{
