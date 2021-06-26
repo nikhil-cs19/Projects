@@ -56,8 +56,8 @@ app.get('/',function(req,res){
 
 
 app.post('/', urlencodedParser,[
-  check('first_name','First name must be more than 3 characters')
-        .isLength({min:3})
+  check('first_name')
+        .isLength({min:3}).withMessage('First Name must be atleast 3 characters long')
 ],
   (req,res)=>{
 
@@ -123,7 +123,7 @@ app.get('/page1',(req,res)=>{
   console.log(sid);
 })
 
-app.post('/page1s',(req,res)=>{
+app.post('/page1',(req,res)=>{
   let fname = req.body.fname;
   let lname = req.body.lname;
   let DOB = req.body.dob;
@@ -162,7 +162,7 @@ app.get('/page2',(req,res)=>{
   res.render("page2")
 })
 
-app.post('/page2s',(req,res)=>{
+app.post('/page2',(req,res)=>{
   let moa = req.body.mode;
   let branch = req.body.bran;
   let board10 = req.body.boa10;
@@ -189,7 +189,7 @@ app.get('/page3',(req,res)=>{
 })
 
 
-app.post('/page3s',(req,res)=>{
+app.post('/page3',(req,res)=>{
 
   //insert details of father into family table
 

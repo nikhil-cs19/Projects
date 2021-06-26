@@ -4,10 +4,9 @@
     <meta charset="utf-8">
     <title>Student personnel details</title>
     <link rel="stylesheet" href="page1.css">
-    <script defer type="text/javascript" src="page1.js"></script>
-
   <body>
-    
+    <script type="text/javascript" src="page1.js"></script>
+
     </script>
     <div id="college">
     <img src="bmsce logo.png" width="100" height="100" >
@@ -16,20 +15,15 @@
       <h3>Estd.1946</h3>
       <hr>
     </div>
-    <div id="error"></div>
+
     <h1 id="main">Student Personnel Details</h1>
-    <div class="container">
-    <form id="form" action="/page1" name="form" method="POST"><!--class="" action="index.html"  metion="thod="post"-->
+    <div>
+    <form id="my-form" action="page1s" name="form" method="POST"><!--class="" action="index.html"  metion="thod="post"-->
       <table>
-
       <tr><td class="ifield"><label for="sfname">First Name:</label></td>
-      <td><input type="text" id="sfname" name="fname" style="width:178px;height:24px;" pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$"
-        title="Enter valid name" required></input></td></tr>
-
+      <td><input type="text" id="sfname" name="fname" style="width:178px;height:24px;" required onchange="NameCheckf(this.value) "></input></td></tr>
       <tr><td class="ifield"><label for="slname" >Last Name:</label></td>
-      <td><input type="text" id="slname" name="lname" style="width:178px;height:24px;" pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$"
-        title="Enter valid name" required></input></td></tr>
-
+      <td><input type="text" id="slname" name="lname" style="width:178px;height:24px;" required onchange="NameCheckl(this.value)"></input></td></tr>
       <tr><td class="ifield"><label for="dob" >Date of Birth:</label></td>
       <td><input type="date" id="dob" name="dob" style="width:178px;height:24px; " required></input></td></tr>
 
@@ -42,8 +36,7 @@
         </select>
         </td></tr>
       <tr><td class="ifield"><label for="mobile" >Mobile Number:</label></td>
-      <td><input type="tel"id="mobile" name="number" style="width:178px;height:24px;" pattern="[6-9][0-9]{9}"
-        title="Mobile number must be 10 characters long with no special symbols" required></td></tr>  
+      <td><input type="number"id="mobile" name="number" style="width:178px;height:24px;" onchange="PhoneNumber(this.value)" required></td></tr>  <!--check this line again-->
       <tr><td class="ifield"><label for="email" >Email ID:</label></td>
       <td><input type="email" id="email" name="email" style="width:178px;height:24px;" onchange="EmailCheck(this.value)" required></td></tr>
       <tr><td class="ifield"><label for="blood" >Blood Group:</label></td>
@@ -85,11 +78,9 @@
         <option value="Other">Other</option>
       </select></td></tr>
       <tr><td class="ifield"><label for="adhar">Aadhar No.:</label></td>
-      <td><input type="tel" id="adhar" name="adhar" style="width:178px;height:24px;" pattern="[0-9]{12}"
-        title="Adhar number must be 12 characters long with no special symbol" ></input></td></tr>
+      <td><input type="number" id="adhar" name="adhar" style="width:178px;height:24px;" onchange="AdharNo(this.value)" required></input></td></tr>
       </table>
-      <button type="submit" class="next" id='my-form'>Next&raquo;</button>
-    <!-- <input type="submit" class="next"> -->
+    <input type="submit" class="next">
     </form><br>
   </div>
   <pre>

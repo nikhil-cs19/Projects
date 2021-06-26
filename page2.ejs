@@ -18,7 +18,7 @@
     </div>
     <h1>Student Academic Details</h1>
     <div >
-      <form name="form" id='my-form' action="\page2" method="POST">
+      <form name="form" id='my-form' action="\page2s" method="POST">
            <div>
              <div class="modeA">
                <label for="mode">Mode of Admission</label>
@@ -84,8 +84,7 @@
         </select></td></tr>
         <tr>
           <td><label for="percent">percentage obtained</label></td>
-          <td><input type="tel" id="percent" class="input" name="perc10" pattern="(100|[3-9][0-9])"
-            title="Please enter valid percentage and round it to nearest integer eg ' 82.36 to 82 ' " required></td>
+          <td><input type="number" id="percent" class="input" name="perc10" onchange="PercentValidate(this.value)" required></td>
         </tr>
       </table>
 
@@ -126,8 +125,7 @@
           <option value="2012">2012</option>
         </select></td></tr>
         <tr><td><label for="percent12">percentage obtained</label></td>
-        <td><input type="tel" id="percent12" class="input" name="perc12" pattern="(100|[3-9][0-9])"
-          title="Please enter valid percentage and it Round to nearest integer eg ' 82.36 to 82 ' " required></td></tr>
+        <td><input type="number" id="percent12" class="input" name="perc12" onchange="PercentValidate(this.value)" required></td></tr>
       </table>
       <input type="submit" class="next">
       </form>

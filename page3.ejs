@@ -18,13 +18,12 @@
     </div>
     <h1>Family particulers</h1>
     <div >
-      <form id='my-form' name="form" action="/page3" method="POST">
+      <form id='my-form' name="form" action="/page3s" method="POST">
         <table class="parent">
             <tr><td></td><td><h3>Father</h3> </td></tr>
             <tr>
               <td><label for="name">Name</label></td>
-              <td><input type="text" id="fname" name="fname" pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$"
-                title="Enter valid name" required></input></td>
+              <td><input type="text" id="fname" name="fname" onchange="FatherNameCheck(this.value)" required></input></td>
             </tr>
             <tr>
               <td><label for="date">Date of birth</label></td>
@@ -62,20 +61,18 @@
             </tr>
             <tr>
               <td><label for="fmobno">Mobile no:</label></td>
-              <td><input type="tel" id="fmobno" name="fmob" pattern="[6-9][0-9]{9}" 
-                title = "Enter valid phone number " required></td>
+              <td><input type="number" id="fmobno" name="fmob" onchange="PhoneNumber(this.value)" required></td>
             </tr>
             <tr>
               <td><label for="fmail">Email:</label></td>
-              <td><input type="Email" id="fmail" name="femail" ></td>
+              <td><input type="Email" id="fmail" name="femail" onchange="EmailCheck(this.value)"></td>
             </tr>
         </table>
             <table class="parent">
               <tr><td><h3>Mother</h3></td><td> </td></tr>
               <tr>
                 <td><label for="mname">Name</label></td>
-                <td><input type="text" id="mname" name="mname"  pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$"
-                  title="Enter valid name" required></input></td>
+                <td><input type="text" id="mname" name="mname"  onchange="MotherNameCheck(this.value)" required></input></td>
               </tr>
               <tr>
                 <td><label for="date">Date of birth</label></td>
@@ -114,12 +111,11 @@
               </tr>
               <tr>
                 <td><label for="mmobno">Mobile no:</label></td>
-                <td><input type="tel" id="mmobno" name="mmob" pattern="[6-9][0-9]{9}"
-                  title="Enter valid phone number" required></td>
+                <td><input type="number" id="mmobno" name="mmob" onchange="PhoneNumber(this.value)" required></td>
               </tr>
               <tr>
                 <td><label for="mmail">Email:</label></td>
-                <td><input type="Email" id="mmail" ></td>
+                <td><input type="Email" id="mmail" onchange="EmailCheck(this.value)"></td>
               </tr>
             </table>
               <h3 class="addressclass">Present address</h3>
@@ -137,8 +133,7 @@
                     <label for="post">Postal code</label>
                   </div>
                   <div class="inp">
-                    <input type="tel" name="prpost" id="post" pattern="[1-9][0-9]{5}"
-                    title="Enter valid postal code" required>
+                    <input type="number" name="prpost" id="post" onchange="PostalCodeCheck(this.value)" required>
                   </div>
                 </div>
                 <div class="row">
@@ -146,8 +141,7 @@
                     <label for="city">City</label>
                   </div>
                   <div class="inp">
-                    <input type="text" name="prcity" id="city" pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$"
-                    title="Enter valid city name" required>
+                    <input type="text" name="prcity" id="city" onchange="CityCheck(this.value)" required>
                   </div>
                 </div>
                 <div class="row">
@@ -155,8 +149,7 @@
                     <label for="state">State</label>
                   </div>
                   <div class="inp">
-                    <input type="text" name="prstate" id="state" pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$"
-                    title="Enter valid state name" required>
+                    <input type="text" name="prstate" id="state" onchange="StateCheck(this.value)" required>
                   </div>
                 </div>
               </div>
@@ -176,8 +169,7 @@
                     <label for="pepost">Postal code</label>
                   </div>
                   <div class="inp">
-                    <input type="tel" id="pepost" name="pepost" pattern="[1-9][0-9]{5}"
-                    title="Enter valid postal code" required>
+                    <input type="number" id="pepost" name="pepost" onchange="PostalCodeCheck(this.value)" required>
                   </div>
                 </div>
                 <div class="row">
@@ -185,8 +177,7 @@
                     <label for="pecity">City</label>
                   </div>
                   <div class="inp">
-                    <input type="text" id="pecity" name = "pecity" pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$"
-                    title="Enter valid city name" required>
+                    <input type="text" id="pecity" name = "pecity" onchange="CityCheck(this.value)" required>
                   </div>
                 </div>
                 <div class="row">
@@ -194,13 +185,11 @@
                     <label for="pestate">State</label>
                   </div>
                   <div class="inp">
-                    <input type="text" id="pestate" pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$"
-                    title="Enter valid state name" required>
+                    <input type="text" id="pestate" onchange="StateCheck(this.value)" required>
                   </div>
                 </div>
               </div>
-              <!-- <input type="submit" class='next' > -->
-              <button type="submit" class="next">Submit</button>
+              <input type="submit" class='next' >
       </form>
     </div>
     <div class="">
