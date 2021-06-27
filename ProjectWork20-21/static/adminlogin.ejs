@@ -20,8 +20,13 @@
           <h3>Estd.1946</h3>
           <hr>
         </div>
+        <% if(message.length>10){%>
+            <div class="alert alert-danger container ">
+                <%= message %>
+            </div>
+        <%}%>
 <div class="login-form">
-    <form action="/homepage" method="post">
+    <form action="/adminlogin" method="post">
         <h2 class="text-center">Admin Login</h2>   
         <div class="form-group">
         	<div class="input-group">
@@ -30,7 +35,7 @@
                         <span class="fa fa-user"></span>
                     </span>                    
                 </div>
-                <input type="text" class="form-control" placeholder="Email ID" required="required">
+                <input type="text" class="form-control" name="email" placeholder="Email ID" required="required">
             </div>
         </div>
 		<div class="form-group">
@@ -40,7 +45,7 @@
                         <span class="fa fa-lock"></span>
                     </span>                    
                 </div>
-                <input type="password" class="form-control" placeholder="Password" required="required">
+                <input type="password" class="form-control" name="password" placeholder="Password" required="required">
             </div>
         </div>        
         <div class="form-group">
