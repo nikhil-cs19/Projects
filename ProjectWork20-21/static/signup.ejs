@@ -14,7 +14,7 @@
 <style>
 body {
 	color: black;
-	background-image:url("background-image.jpg");
+	background-image:url("admin.jpg");
 	font-family:  sans-serif;
 }
 img{
@@ -23,6 +23,7 @@ img{
 div{
 	text-align: center;
 }
+
 .form-control {
 	height: 41px;
 	background: #f2f2f2;
@@ -104,26 +105,36 @@ div{
           <h3>Autonomus institue, Affiliated to VTU</h3>
           <h3>Estd.1946</h3>
           <hr>
-        </div>
+	</div>
+	
 <div class="signup-form">
-    <form action="/sisubmit" method="post">
+    <form action="/"  method="post">
 		<h2>Sign Up</h2>
 		<p>Please fill in this form to create an account!</p>
 		<hr>
         <div class="form-group">
 			<div class="row">
-				<div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" required="required"></div>
-				<div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required"></div>
-			</div>        	
-        </div>
+				<div class="col"><input type="text" class="form-control" name="first_name" placeholder="First Name" pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$" 
+					title="Enter valid name" required></div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div class="col"><input type="text" class="form-control" name="last_name" placeholder="Last Name" pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$" 
+					title="Enter valid name" required="required"></div>
+			</div> 
+		</div>       	
         <div class="form-group">
-        	<input type="email" class="form-control" name="email" placeholder="Email" required="required">
+        	<input type="email" class="form-control" name="email" placeholder="Email" pattern="[a-z]+.[a-z]{2}[0-9][0-9]@bmsce.ac.in"
+			title="Enter valid BMSCE Email-ID ex: ' name.cs19@bmsce.ac.in '" required="required">
         </div>
 		<div class="form-group">
-            <input type="password" class="form-control" name="password" id ="password" placeholder="Password" required="required">
+            <input type="password" class="form-control" name="password" id ="password" placeholder="Password" pattern=".{10,30}"
+			title="Password must be atleast 10 characters long" required="required">
         </div>
 		<div class="form-group">
-            <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required="required" onkeyup='check();'>
+            <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Confirm Password" pattern=".{10,30}"
+			title="It should match with password value" required="required" onkeyup='check();'>
             <span id='message'></span>
         </div>
 
@@ -131,7 +142,7 @@ div{
             <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
         </div>
     </form>
-	<div class="hint-text">Already have an account? <a href="/stulogin">Login here</a></div>
+	<div class="hint-text">Already have an account? <a href="/stulogin" style="color: #D82010;"><b>Login here</b></a></div>
 </div>
 </body>
 </html>
