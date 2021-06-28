@@ -70,7 +70,8 @@
                 </thead>
                 <tbody>
                     <% for(var i=0; i < items.length; i++) { %>
-                        <tr>
+                        <%let url = "/admstu?id="+items[i].student_id%>
+                        <tr data-href="/admstu?id=2">
                             <td><%=i+1%></td>
                           <td><%= items[i].FirstName %></td>
                           <td><%= items[i].LastName %></td>
@@ -83,5 +84,16 @@
             </table>
         </div>
         <h1><%=data_length%></h1>
+        <script>
+            document.addEventListener("DOMContentLoaded",()=>{
+                const rows = document.querySelectorAll("tr[data-href]");
+                rows.forEach(row =>{
+                    console.log(row);
+                    row.addEventListener('click',()=>{
+                        window.location.href = row.dataset.href;
+                    });
+                });
+            })
+        </script>
     </body>   
 </html>

@@ -92,7 +92,7 @@ insert into student()values();
 insert into student()values();
 insert into student()values();
 insert into student()values();
-
+select * from student;
  
 insert into academic_details(student_id,branch)values(1,"Computer Science and Engineering");
 insert into academic_details(student_id,branch)values(2,"Mechanical Engineering");
@@ -109,9 +109,11 @@ insert into signup values("arunk.is19@bmsce.ac.in","Arun","kumar K","",3);
 insert into signup values("anil.ec20@bmsce.ac.in","Anil","M","",4);
 insert into signup values("shashikantm.cv19@bmsce.ac.in","Shashikant","singh M","",5);
 
+update signup set password_ = 'nikhil' where student_id = 1;
 
 select *from signup;
-
+select * from Family;
+select * from academic_details;
 /*
 insert into student()values();
 insert into student()values();
@@ -151,3 +153,12 @@ insert into signup values("nitin.bt17@bmsce.ac.in","nitin","Dulloli","",13);
 insert into signup values("mallikaprasad.mt18@bmsce.ac.in","Mallika","prasad","",14);
 insert into signup values("darshanm.cs19@bmsce.ac.in","Darshan","M S","",15);
 */
+
+
+create table admin(
+email varchar (60) primary key,
+password_ varchar(15)
+);
+insert into admin values( 'hod.cse@bmsce.ac.in','12345');
+select * from admin;
+drop database project_work;

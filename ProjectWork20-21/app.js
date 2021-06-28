@@ -19,7 +19,7 @@ var mother = null;
 var address = null;
 
 
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
+const urlencodedParser = bodyParser.urlencoded({ extended: true });
 // app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -53,24 +53,23 @@ var db = mysql.createConnection({
   // Signup Route
 app.get('/',function(req,res){
   res.render("signup", {message:"n"})
+});
+
+
+app.post('/', urlencodedParser,(req,res)=>{
+  let sql = `insert into student() values()`;
   db.query("SELECT student_id from student where student_id = (select max(student_id) from student);", function (err, value) {
     if (err) throw err;
     console.log(value);
     sid = value[0].student_id;
     sid+=1;
   });
-});
-
-
-app.post('/', urlencodedParser,(req,res)=>{
-  let sql = `insert into student() values()`;
   db.query(sql, function (err, values) {
     if (err) throw err;
       db.query(sql, function (err, result) {
         if (err) throw err;
         console.log("ok");
       });
-      console.log(`this is the student id ${sid}`);
       let email = req.body.email;
       let password = req.body.password;
       let FirstName = req.body.first_name; 
@@ -108,6 +107,10 @@ app.post('/stulogin',urlencodedParser,(req,res)=>{
     
   })
   
+  //Forgot password page router
+  app.get('/forgot',(req,res)=>{
+    res.render("for");
+  })
   
   //Home page Router
   app.get('/homepage',(req,res)=>{
@@ -119,6 +122,7 @@ app.post('/stulogin',urlencodedParser,(req,res)=>{
 app.get('/page1',(req,res)=>{
   res.render("page1");
   console.log(sid);
+  console.log(`this is the student id ${sid}`);
 })
 
 app.post('/page1',urlencodedParser,(req,res)=>{
@@ -238,14 +242,16 @@ app.post('/page3',urlencodedParser,(req,res)=>{
 
 //Success page Router
 app.get('/success',(req,res)=>{
+  let id = sid;
   if (sid==null){
-    sid = 22;
+    id= 2;
   }
-  let sql1 = `select * from student where student_id = ${sid};`
-  let sql2 = `select * from Academic_Details where student_id = ${sid};`
-  let sql3 = `select * from Family where student_id = ${sid} and Relationship = "Father";`
-  let sql4 = `select * from Family where student_id = ${sid} and Relationship = "Mother";`
-  let sql5 = `select * from Address where student_id = ${sid};`
+  console.log(`this is student id ${id}`);
+  let sql1 = `select * from student where student_id = ${id};`
+  let sql2 = `select * from Academic_Details where student_id = ${id};`
+  let sql3 = `select * from Family where student_id = ${id} and Relationship = "Father";`
+  let sql4 = `select * from Family where student_id = ${id} and Relationship = "Mother";`
+  let sql5 = `select * from Address where student_id = ${id};`
   db.query(sql1,(err,values)=>{
     if (err) throw err;
     student = values;
@@ -345,4 +351,43 @@ app.post('/admin',urlencodedParser,(req,res)=>{
     res.render("admin",{items:values});
   });
   }
+})
+
+
+
+//Admin Student Router
+app.get('/admstu',(req,res)=>{
+  id = req.query.id;
+  console.log(`required id = ${id}`);
+  let sql1 = `select * from student where student_id = ${id};`
+  let sql2 = `select * from Academic_Details where student_id = ${id};`
+  let sql3 = `select * from Family where student_id = ${id} and Relationship = "Father";`
+  let sql4 = `select * from Family where student_id = ${id} and Relationship = "Mother";`
+  let sql5 = `select * from Address where student_id = ${id};`
+  db.query(sql1,(err,values)=>{
+    if (err) throw err;
+    student = values;
+  });
+  db.query(sql2,(err,values)=>{
+    if (err) throw err;
+    academic = values;
+  });
+  db.query(sql3,(err,values)=>{
+    if (err) throw err;
+    father = values;
+  });
+  db.query(sql4,(err,values)=>{
+    if (err) throw err;
+    mother = values;
+  });
+  db.query(sql5,(err,values)=>{
+    if (err) throw err;
+    address = values;
+    console.log(student);
+    console.log(academic);
+    console.log(father);
+    console.log(mother);
+    console.log(address);
+    res.render("admstu",{student,academic,father,mother,address});
+  });
 })
