@@ -3,11 +3,13 @@ img{
   }
   #college{
       text-align: center;
+      background-color: rgba(173, 216, 230,0.7);
   }
   
   body{
     background-color: black;
     background-image: url("admin.jpg");
+    background-size: cover;
   }
   select,button{
       display: inline-block;

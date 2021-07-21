@@ -15,6 +15,7 @@ div,h1{
 }
 body{
 background-image:url("admin.jpg");
+background-size: cover;
 }
 button {
   text-decoration: none;
@@ -54,4 +55,8 @@ select{
   width:182.4px;
   height: 26px;
   margin-bottom: 15px;
+}
+#college{
+  background-color: rgba(173, 216, 230,0.7);
+  margin-top: -20px;
 }

@@ -1,5 +1,6 @@
 body{
     background-image: url("admin.jpg");
+    background-size: cover;
 }
 img{
     float: left;
@@ -33,4 +34,7 @@ img{
 }
 .bottom-action {
   	font-size: 14px;
+}
+#college{
+    background-color: rgba(173, 216, 230,0.7);
 }

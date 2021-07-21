@@ -16,7 +16,7 @@
         <img src="bmsce logo.png" width="100" height="100" >
     
         <h1>B.M.S COLLEGE OF ENGINEERING</h1>
-          <h3>Autonomus institue, Affiliated to VTU</h3>
+          <h3>Autonomous institute, Affiliated to VTU</h3>
           <h3>Estd.1946</h3>
           <hr>
         </div>
@@ -87,8 +87,8 @@
         <script>
             document.addEventListener("DOMContentLoaded",()=>{
                 const rows = document.querySelectorAll("tr[data-href]");
+                console.log(rows.length);
                 rows.forEach(row =>{
-                    console.log(row);
                     row.addEventListener('click',()=>{
                         window.location.href = row.dataset.href;
                     });
@@ -97,3 +97,4 @@
         </script>
     </body>   
 </html>
+<!-- row.dataset.href -->

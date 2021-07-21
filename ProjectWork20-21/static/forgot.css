@@ -21,9 +21,12 @@ display:inline-block;
 border:3px  solid black;
 
 }
-
+#college{
+  background-color: rgba(173, 216, 230,0.7);
+}
 body{
-background-image:url("background-image.jpg");
+background-image:url("admin.jpg");
+background-size: cover;
 }
 boader1{
     box-sizing:border-box;

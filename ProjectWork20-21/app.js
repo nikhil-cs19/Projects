@@ -50,13 +50,19 @@ var db = mysql.createConnection({
     console.log('mysql connected');
   });
 
-  // Signup Route
+// Starting page
 app.get('/',function(req,res){
+  res.render("start", {message:"n"})
+});
+
+
+  // Signup Route
+app.get('/signup',function(req,res){
   res.render("signup", {message:"n"})
 });
 
 
-app.post('/', urlencodedParser,(req,res)=>{
+app.post('/signup', urlencodedParser,(req,res)=>{
   let sql = `insert into student() values()`;
   db.query("SELECT student_id from student where student_id = (select max(student_id) from student);", function (err, value) {
     if (err) throw err;
@@ -305,7 +311,7 @@ app.get('/success',(req,res)=>{
 
 // Admin page Router
 app.get('/admin',(req,res)=>{
-  let sql = `select s.FirstName,s.LastName,s.Email, s.student_id,a.branch from signup s, Academic_Details a where s.student_id = a.student_id;`
+  let sql = `select s.FirstName,s.LastName,s.Email, s.student_id,a.branch from signup s, Academic_Details a where s.student_id = a.student_id order by s.student_id;`
   db.query(sql,(err,values)=>{
     if (err) throw err;
     res.render("admin",{items:values});

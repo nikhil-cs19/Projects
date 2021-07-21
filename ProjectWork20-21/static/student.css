@@ -8,6 +8,7 @@ img{
   body{
     background-color: black;
     background-image: url("admin.jpg");
+    background-size: cover;
   }
   select,button{
       display: inline-block;
@@ -50,3 +51,6 @@ tr:nth-child(even){
 tr:nth-child(odd){
      background-color:lightblue;
 }
+#college{
+    background-color: rgba(173, 216, 230,0.7);
+  }
